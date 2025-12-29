@@ -22,13 +22,13 @@ export function Fieldset({ className, ...props }: { disabled?: boolean } & Headl
   )
 }
 
-export function Legend({ ...props }: HeadlessLegendProps) {
+export function Legend({ className, ...props }: { className?: string } & HeadlessLegendProps) {
   return (
     <HeadlessLegend
       {...props}
       data-slot="legend"
       className={clsx(
-        props.className,
+        className,
         'text-base/6 font-semibold text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white'
       )}
     />
