@@ -1,0 +1,18 @@
+.canvas {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+  }
+
+/* Canvas.css */
+.vr-background {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}

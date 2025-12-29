@@ -1,0 +1,770 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  overflow: hidden;
+}
+
+.form-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  transition: transform 0.5s ease-in-out;
+  transform: translateY(calc(100% - 40px));
+  /* Show only the toggle button by default */
+}
+
+.form-wrapper.visible {
+  transform: translateY(0);
+}
+
+.form-container {
+  height: 85vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.form-content {
+  padding: 1rem;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.form-toggle {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 240, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 40px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-toggle:hover {
+  background-color: rgba(255, 240, 0, 0.5);
+}
+
+@media (min-width: 640px) {
+  .form-content {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .mt-30 {
+    margin-top: -80px;
+  }
+
+  .mt-negative {
+    margin-top: -1320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .mt-30 {
+    margin-top: -80px;
+  }
+
+  .mt-negative {
+    margin-top: -1320px;
+  }
+}
+
+@media (max-width: 541px) {
+  .mt-30 {
+    margin-top: -200px;
+  }
+
+  .mt-negative {
+    margin-top: -1290px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mt-30 {
+    margin-top: -100px;
+  }
+
+  .mt-negative {
+    margin-top: -1350px;
+  }
+}
+
+@media screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+  .mt-30 {
+    margin-top: -220px;
+  }
+
+  .mt-negative {
+    margin-top: -1250px;
+  }
+
+  .hide-on-iphone-se {
+    display: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .mt-30 {
+    margin-top: -130px;
+  }
+
+  .mt-negative {
+    margin-top: -1350px;
+  }
+}
+
+@media (max-width: 350px) {
+  .mt-30 {
+    margin-top: -80px;
+  }
+
+  .mt-negative {
+    margin-top: -1320px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 924px) {
+  .mt-30 {
+    margin-top: -50px;
+  }
+
+  .mt-negative {
+    margin-top: -1400px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1024px) and (min-height: 1366px) and (max-height: 1366px) {
+  .mt-30 {
+    margin-top: -80px;
+  }
+
+  .mt-negative {
+    margin-top: -1350px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1024px) and (min-height: 600px) and (max-height: 600px) {
+  .mt-30 {
+    margin-top: -130px;
+  }
+
+  .mt-negative {
+    margin-top: -1340px;
+  }
+}
+
+@media (min-width: 925px) and (max-width: 1023px) {
+  .mt-30 {
+    margin-top: -80px;
+  }
+
+  .mt-negative {
+    margin-top: -1320px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1080px) {
+  .mt-30 {
+    margin-top: -80px;
+  }
+
+  .mt-negative {
+    margin-top: -1320px;
+  }
+}
+
+@media (min-width: 1081px) and (max-width: 1280px) {
+  .mt-30 {
+    margin-top: -80px;
+  }
+
+  .mt-negative {
+    margin-top: -1320px;
+  }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+  .mt-30 {
+    margin-top: -60px;
+  }
+
+  .mt-negative {
+    margin-top: -1400px;
+  }
+}
+
+@media (min-width: 1441px) and (max-width: 1600px) {
+  .mt-30 {
+    margin-top: -50px;
+  }
+
+  .mt-negative {
+    margin-top: -1430px;
+  }
+}
+
+@media (min-width: 1601px) and (max-width: 1910px) {
+  .mt-30 {
+    margin-top: -20px;
+  }
+
+  .mt-negative {
+    margin-top: -1430px;
+  }
+}
+
+@media (min-width: 1911px) and (max-width: 2160px) {
+  .mt-30 {
+    margin-top: 30px;
+  }
+
+  .mt-negative {
+    margin-top: -1500px;
+  }
+}
+
+@media (min-width: 2161px) and (max-width: 2220px) {
+  .mt-30 {
+    margin-top: 80px;
+  }
+
+  .mt-negative {
+    margin-top: -1550px;
+  }
+}
+
+@media (min-width: 2221px) {
+  .mt-30 {
+    margin-top: 100px;
+  }
+
+  .mt-negative {
+    margin-top: -1570px;
+  }
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+}
+
+.duration-500 {
+  transition-duration: 1000ms;
+}
+
+.white-arrow {
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 140 140" width="50" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M35 50l35 35 35-35z"/></svg>') no-repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: 2em auto, 100%;
+}
+
+@keyframes gleam {
+  0% {
+    border-image-source: linear-gradient(45deg, #555555, #333333, #555555);
+    /* Switch to gray (#555555) and a darker variant (#333333) */
+    border-radius: 30px;
+  }
+
+  50% {
+    border-image-source: linear-gradient(45deg, #333333, #555555, #333333);
+    /* Reverse the gradient colors */
+    box-shadow: 0 0 10px #333333;
+    /* Use the darker variant */
+    border-radius: 30px;
+  }
+
+  100% {
+    border-image-source: linear-gradient(45deg, #555555, #333333, #555555);
+    /* Return to the initial gradient */
+    box-shadow: 0 0 10px #555555;
+    /* Use the original gray */
+    border-radius: 30px;
+  }
+}
+
+@keyframes float-bubble {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-bubble {
+  animation: float-bubble 0.4s ease-out forwards;
+}
+
+.chat-container {
+  max-width: 100%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.0);
+  border-radius: 10px;
+}
+
+.chat-messages {
+  padding: 10px;
+  max-height: auto;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-message {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 80%;
+  animation: float-bubble 0.3s ease-out;
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.chat-submit-button {
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.chat-submit-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Keyframe for user bubble pop-in */
+@keyframes pop-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Keyframe for bot bubble talking animation */
+@keyframes bot-talk {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Keyframe for typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* User message pop-in animation */
+.animate-pop-in {
+  animation: pop-in 0.4s ease-out;
+}
+
+/* Bot message talking effect */
+.animate-bot-talk {
+  animation: bot-talk 1.2s ease-in-out infinite;
+}
+
+/* Styling for sender's name */
+.message-sender {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-bottom: 4px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* User and bot message styling */
+.user-bubble {
+  background-color: rgba(76, 175, 80, 0.8);
+  border-radius: 20px;
+}
+
+.bot-bubble {
+  background-color: rgba(33, 150, 243, 0.8);
+  border-radius: 20px;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Slide from bottom */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    /* Slide to original position */
+  }
+}
+
+@keyframes pulseText {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Add animation to the div container */
+.animate-fade-slide {
+  animation: fadeSlide 1.2s ease-out forwards;
+  /* Slightly slower for smooth effect */
+}
+
+/* Add subtle pulsing animation to the text */
+.animate-pulse-text {
+  animation: pulseText 2s ease-in-out infinite;
+  /* Slow pulse effect */
+}
+
+@keyframes rotateZoom {
+  0% {
+    transform: scale(1.2) rotate(0deg);
+  }
+
+  50% {
+    transform: scale(1.5) rotate(180deg);
+  }
+
+  100% {
+    transform: scale(1.2) rotate(360deg);
+  }
+}
+
+.rotate-anim {
+  animation: rotateZoom 8s infinite linear;
+  transform-origin: center;
+}
+
+/* Custom Scrollbar Styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;
+  /* Adjust the width of the scrollbar */
+  border-radius: 10px;
+  /* Ensure scrollbar has rounded corners */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  /* background: rgba(44, 62, 80, 0.3); */
+  border-radius: 10px;
+  /* Rounded corners to match container */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #666666;
+  /* Scrollbar color */
+  border-radius: 10px;
+  /* Rounded corners for scrollbar thumb */
+  border: 3px solid rgba(0, 0, 0, 0.2);
+  /* Adds spacing around scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #666666;
+  /* Hover effect */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:active {
+  background-color: #666666;
+  /* Active effect */
+}
+
+.scroll-container {
+  overflow-y: auto;
+  /* Ensure vertical scrolling */
+  max-height: 90vh;
+  /* Define max height for scrolling */
+  border-radius: 20px;
+  /* Match the border-radius of the container */
+  padding-right: 10px;
+  /* Create space for the scrollbar */
+  /* background-color: rgba(44, 62, 80, 0.9); */
+  position: relative;
+  /* For internal alignment */
+  /* box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2); */
+}
+
+/* General container styles */
+/* General container styles */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  /* Facet on the Y-axis, Methods on both sides */
+  gap: 20px;
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Facet column + 2 method columns */
+  align-items: center;
+}
+
+/* Style for the facet node */
+.facet-node {
+  text-align: center;
+  grid-column: 2;
+}
+
+.facet-circle {
+  width: 60px;
+  height: 60px;
+  background-color: steelblue;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Style for method rows */
+.method-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.method-node {
+  width: 40px;
+  height: 40px;
+  background-color: lightblue;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Tooltip styling */
+.facet-circle::after,
+.method-node::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  transform: translate(-50%, -120%);
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.facet-circle:hover::after,
+.method-node:hover::after {
+  opacity: 1;
+}
+
+/* Ripple/Accordion Animation */
+@keyframes accordion {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-accordion {
+  animation: accordion 0.4s ease-in-out;
+}
+
+/* Sleek and Slim Scrollbars Globals */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* Utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Ultra-Glassmorphism Refinement */
+.ultra-glass {
+  background: rgba(9, 9, 11, 0.4);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+.ultra-glass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.ultra-glass::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.ultra-glass-hover:hover {
+  background: rgba(9, 9, 11, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
