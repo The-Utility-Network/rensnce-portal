@@ -1179,11 +1179,11 @@ export default function Form() {
         }
         try {
           const fiatStatus = await getBuyWithFiatStatus({ client: thirdwebClient, intentId });
-          // console.log("Onramp Polling Status:", fiatStatus);
-          if (fiatStatus.status === "ON_RAMP_TRANSFER_COMPLETED") {
+          const status = fiatStatus.status as any;
+          if (status === "ON_RAMP_TRANSFER_COMPLETED") {
             resolve();
-          } else if (fiatStatus.status === "PAYMENT_FAILED" || fiatStatus.status === "ON_RAMP_TRANSFER_FAILED") {
-            reject(new Error(`Onramp failed: ${fiatStatus.status}`));
+          } else if (status === "PAYMENT_FAILED" || status === "ON_RAMP_TRANSFER_FAILED") {
+            reject(new Error(`Onramp failed: ${status}`));
           } else {
             setTimeout(checkStatus, 5000);
           }

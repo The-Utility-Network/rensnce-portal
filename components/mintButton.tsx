@@ -109,10 +109,11 @@ function Minting({ Batch, tokens, whitelist, referral, batchPrice }: { Batch: nu
           return;
         }
         const fiatStatus = await getBuyWithFiatStatus({ client: payClient, intentId });
-        if (fiatStatus.status === "ON_RAMP_TRANSFER_COMPLETED") {
+        const status = fiatStatus.status as any;
+        if (status === "ON_RAMP_TRANSFER_COMPLETED") {
           resolve();
-        } else if (fiatStatus.status === "PAYMENT_FAILED" || fiatStatus.status === "ON_RAMP_TRANSFER_FAILED") {
-          reject(new Error(`Onramp failed with status: ${fiatStatus.status}`));
+        } else if (status === "PAYMENT_FAILED" || status === "ON_RAMP_TRANSFER_FAILED") {
+          reject(new Error(`Onramp failed with status: ${status}`));
         } else {
           setTimeout(checkStatus, 5000);
         }
