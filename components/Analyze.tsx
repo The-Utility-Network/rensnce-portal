@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 // Adjust imports to valid relative paths
-import { requestQueue } from "../../utils/RequestQueue";
+import { requestQueue } from "../utils/RequestQueue";
 import dynamic from 'next/dynamic';
 const Diamond3D = dynamic(() => import("./Diamond3D"), { ssr: false });
 import { ethers } from "ethers";
